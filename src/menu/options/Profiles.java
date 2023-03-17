@@ -67,7 +67,7 @@ public class Profiles {
             Collections.shuffle(shuffledCards);
 
             Showcase.count = 0;
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../showcase/fxml/showcase.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/showcase/fxml/showcase.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             root.setStyle("-fx-background-color: lightblue");
             Stage stage = new Stage();

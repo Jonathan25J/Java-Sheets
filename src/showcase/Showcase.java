@@ -16,8 +16,10 @@ import menu.options.Profiles;
 
 
 import javafx.scene.image.Image;
+
 import java.io.IOException;
 import java.util.ArrayList;
+
 public class Showcase {
     @FXML
     private Text question;
@@ -35,13 +37,14 @@ public class Showcase {
     private final Profile profile = Profiles.profile;
     private ArrayList<Card> cards = Profiles.shuffledCards;
     public static int count;
+
     public void initialize() throws IOException {
         if (count == 0) {
             count = 1;
-        } else if (count -1 == cards.size()) {
-          count -= 1;
+        } else if (count - 1 == cards.size()) {
+            count -= 1;
         }
-        Card card = cards.get(count -1);
+        Card card = cards.get(count - 1);
         question.setText(card.getQuestion());
         answer.setText(card.getAnswer().replace("``", "\n"));
         answer.setVisible(false);
@@ -58,6 +61,7 @@ public class Showcase {
         }
 
     }
+
     public void show() {
         answer.setVisible(true);
         image.setVisible(true);

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -61,8 +62,16 @@ public class Edit {
 
     public void initialize() {
         try {
-            File myObj = new File(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\config.txt");
+            File theDir = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets");
+            if (!theDir.exists()) {
+                theDir.mkdirs();
+            }
+            File myObj = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
             if (myObj.createNewFile()) {
+                for (int i = 1; i < 5; i++) {
+                    File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\cards_" + i + ".txt");
+                    file.createNewFile();
+                }
                 profiles.add(new Profile("Profile: 1", 1));
                 profiles.add(new Profile("Profile: 2", 2));
                 profiles.add(new Profile("Profile: 3", 3));
@@ -123,7 +132,7 @@ public class Edit {
     public ArrayList<String> readFile() {
         ArrayList<String> lines = new ArrayList<String>();
         try {
-            File file = new File(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\config.txt");
+            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
@@ -138,7 +147,7 @@ public class Edit {
 
 
     public void writeFile(ArrayList<String> lines) throws IOException {
-        FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\config.txt");
+        FileWriter myWriter = new FileWriter(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
         int i = 1;
         for (String line : lines) {
             if (i != profiles.size()) {
@@ -207,7 +216,7 @@ public class Edit {
         reset("Card is removed");
     }
 
-    public void reset(String notification){
+    public void reset(String notification) {
         message.setText(notification);
         question.clear();
         answer.clear();

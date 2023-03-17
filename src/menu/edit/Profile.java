@@ -3,6 +3,7 @@ package menu.edit;
 import global.Card;
 import javafx.scene.control.MenuItem;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -39,7 +40,7 @@ public class Profile {
 
     public ArrayList<Card> getCards() {
         cards.clear();
-        File file = new File(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\cards_" + Integer.toString(number) + ".txt");
+        File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\cards_" + number + ".txt");
         if (file.length() > 0) {
             ArrayList<String> s_cards = readFile();
             for (String card : s_cards) {
@@ -59,7 +60,7 @@ public class Profile {
                 if (card_.getQuestion().equals(card.getQuestion()) && card_.getAnswer().equals(card.getAnswer()) && card_.getLink().equals(card.getLink())) {
                     return;
                 }
-        }
+            }
         }
         s_cards.add(card.toString());
         cards.add(card);
@@ -77,7 +78,7 @@ public class Profile {
     private ArrayList<String> readFile() {
         ArrayList<String> lines = new ArrayList<String>();
         try {
-            File file = new File(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\cards_" + Integer.toString(number) + ".txt");
+            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\cards_" + number + ".txt");
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
@@ -91,7 +92,7 @@ public class Profile {
     }
 
     private void writeFile(ArrayList<String> lines) throws IOException {
-        FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\cards_" + Integer.toString(number) + ".txt");
+        FileWriter myWriter = new FileWriter(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\cards_" + number + ".txt");
         int i = 1;
         for (String line : lines) {
             if (i != cards.size()) {

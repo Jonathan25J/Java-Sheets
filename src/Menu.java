@@ -13,6 +13,7 @@ public class Menu extends Application {
     Button edit;
     @FXML
     Button cards;
+
     public void initialize() {
     }
 
@@ -29,7 +30,7 @@ public class Menu extends Application {
 
     public void getCards() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/menu/options/fxml/profiles.fxml"));
-        Parent root =  (Parent) fxmlLoader.load();
+        Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Profiles");
         stage.setResizable(false);

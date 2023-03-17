@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import menu.edit.Profile;
 import showcase.Showcase;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,6 +33,7 @@ public class Profiles {
     Text message;
     public static Profile profile;
     public static ArrayList<Card> shuffledCards;
+
     public void initialize() {
         ArrayList<String> names = readFile();
         profile_1.setText(names.get(0));
@@ -44,18 +46,21 @@ public class Profiles {
     public void p1() throws IOException {
         choice(1);
     }
+
     public void p2() throws IOException {
         choice(2);
     }
+
     public void p3() throws IOException {
         choice(3);
     }
+
     public void p4() throws IOException {
         choice(4);
     }
 
     public void choice(int number) throws IOException {
-        String profile_name = readFile().get(number -1);
+        String profile_name = readFile().get(number - 1);
         profile = new Profile(profile_name, number);
         if (profile.getCards() != null) {
             shuffledCards = profile.getCards();
@@ -73,14 +78,14 @@ public class Profiles {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         } else {
-            message.setText(profile.getName() +" doesn't contain any cards");
+            message.setText(profile.getName() + " doesn't contain any cards");
         }
     }
 
     public ArrayList<String> readFile() {
         ArrayList<String> lines = new ArrayList<String>();
         try {
-            File file = new File(System.getProperty("user.dir") + "\\src\\menu\\edit\\txt\\config.txt");
+            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();

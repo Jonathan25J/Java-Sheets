@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -69,9 +70,11 @@ public class Profiles {
             Showcase.count = 0;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/showcase/fxml/showcase.fxml"));
             Parent root = (Parent) fxmlLoader.load();
-            root.setStyle("-fx-background-color: lightblue");
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("/images/icon.png"));
             stage.setResizable(false);
+            root.setId("cards_menu");
+            root.getStylesheets().addAll(this.getClass().getResource("/css/styles.css").toExternalForm());
             stage.setTitle(profile.getName());
             stage.setMaximized(true);
             stage.setScene(new Scene(root));
@@ -85,7 +88,7 @@ public class Profiles {
     public ArrayList<String> readFile() {
         ArrayList<String> lines = new ArrayList<String>();
         try {
-            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
+            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JonaqhanJars\\JavaSheets\\config.txt");
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
    <children>
-      <MenuBar layoutY="-12.0" prefHeight="39.0" prefWidth="600.0" />
-      <Button fx:id="cards" layoutX="435.0" layoutY="154.0" mnemonicParsing="false" onAction="#getCards" prefHeight="59.0" prefWidth="87.0" text="Cards" />
-      <Button fx:id="edit" layoutX="76.0" layoutY="154.0" mnemonicParsing="false" onAction="#getEdit" prefHeight="59.0" prefWidth="87.0" text="Edit" />
+      <Button fx:id="cards" layoutX="427.0" layoutY="147.0" mnemonicParsing="false" onAction="#getCards" prefHeight="73.0" prefWidth="117.0" styleClass="button_menu" stylesheets="@../css/styles.css" text="Cards">
+         <opaqueInsets>
+            <Insets top="30.0" />
+         </opaqueInsets></Button>
+      <Button fx:id="edit" layoutX="72.0" layoutY="147.0" mnemonicParsing="false" onAction="#getEdit" prefHeight="73.0" prefWidth="117.0" styleClass="button_menu" stylesheets="@../css/styles.css" text="Edit">
+         <opaqueInsets>
+            <Insets top="30.0" />
+         </opaqueInsets>
+      </Button>
    </children>
 </AnchorPane>

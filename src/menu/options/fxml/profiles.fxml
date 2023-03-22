@@ -7,10 +7,10 @@
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.options.Profiles">
    <children>
-      <Button fx:id="profile_1" cancelButton="true" defaultButton="true" layoutX="311.0" layoutY="315.0" mnemonicParsing="false" onAction="#p1" prefHeight="171.0" prefWidth="208.0" text="Profile 1" />
-      <Button fx:id="profile_2" defaultButton="true" layoutX="652.0" layoutY="315.0" mnemonicParsing="false" onAction="#p2" prefHeight="171.0" prefWidth="208.0" text="Profile 2" textFill="#0a0a0a" />
-      <Button fx:id="profile_3" defaultButton="true" layoutX="997.0" layoutY="315.0" mnemonicParsing="false" onAction="#p3" prefHeight="171.0" prefWidth="208.0" text="Profile 3" textFill="#0a0a0a" />
-      <Button fx:id="profile_4" defaultButton="true" layoutX="1363.0" layoutY="315.0" mnemonicParsing="false" onAction="#p4" prefHeight="171.0" prefWidth="208.0" text="Profile 4" textFill="#0a0a0a" />
+      <Button fx:id="profile_1" cancelButton="true" defaultButton="true" layoutX="311.0" layoutY="315.0" mnemonicParsing="false" onAction="#p1" prefHeight="171.0" prefWidth="208.0" styleClass="button_profiles" stylesheets="@../../../css/styles.css" text="Profile 1" />
+      <Button fx:id="profile_2" defaultButton="true" layoutX="652.0" layoutY="315.0" mnemonicParsing="false" onAction="#p2" prefHeight="171.0" prefWidth="208.0" styleClass="button_profiles" stylesheets="@../../../css/styles.css" text="Profile 2" textFill="#0a0a0a" />
+      <Button fx:id="profile_3" defaultButton="true" layoutX="997.0" layoutY="315.0" mnemonicParsing="false" onAction="#p3" prefHeight="171.0" prefWidth="208.0" styleClass="button_profiles" stylesheets="@../../../css/styles.css" text="Profile 3" textFill="#0a0a0a" />
+      <Button fx:id="profile_4" defaultButton="true" layoutX="1363.0" layoutY="315.0" mnemonicParsing="false" onAction="#p4" prefHeight="171.0" prefWidth="208.0" styleClass="button_profiles" stylesheets="@../../../css/styles.css" text="Profile 4" textFill="#0a0a0a" />
       <Text fx:id="message" fill="#29d639" layoutX="776.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="22.0" />

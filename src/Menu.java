@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,9 +22,11 @@ public class Menu extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu.fxml"));
         Parent root = loader.load();
-        stage.setTitle("Menu");
+        stage.getIcons().add(new Image("/images/icon.png"));
+        stage.setTitle("Java Sheets");
         stage.setResizable(false);
-        root.setStyle("-fx-background-color: #978fc3");
+        root.setId("menu");
+        root.getStylesheets().addAll(this.getClass().getResource("/css/styles.css").toExternalForm());
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -32,10 +35,12 @@ public class Menu extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/menu/options/fxml/profiles.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("/images/icon.png"));
         stage.setTitle("Profiles");
         stage.setResizable(false);
+        root.setId("profiles");
+        root.getStylesheets().addAll(this.getClass().getResource("/css/styles.css").toExternalForm());
         stage.setMaximized(true);
-        root.setStyle("-fx-background-color: lightblue");
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
@@ -46,9 +51,11 @@ public class Menu extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/menu/edit/fxml/edit.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("/images/icon.png"));
         stage.setTitle("Edit");
         stage.setResizable(false);
-        root.setStyle("-fx-background-color: #a7daad");
+        root.setId("edit_menu");
+        root.getStylesheets().addAll(this.getClass().getResource("/css/styles.css").toExternalForm());
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();

@@ -14,17 +14,17 @@
             <Font name="Calibri" size="58.0" />
          </font>
       </Text>
-      <Button fx:id="next" defaultButton="true" layoutX="1692.0" layoutY="836.0" mnemonicParsing="false" onAction="#next" prefHeight="101.0" prefWidth="146.0" text="Next">
+      <Button fx:id="next" defaultButton="true" layoutX="1692.0" layoutY="836.0" mnemonicParsing="false" onAction="#next" prefHeight="101.0" prefWidth="146.0" styleClass="button_cards_right" stylesheets="@../../css/styles.css" text="      Next" textAlignment="JUSTIFY">
          <font>
             <Font size="29.0" />
          </font>
       </Button>
-      <Button fx:id="back" defaultButton="true" layoutX="80.0" layoutY="850.0" mnemonicParsing="false" onAction="#back" prefHeight="101.0" prefWidth="146.0" text="Back">
+      <Button fx:id="back" defaultButton="true" layoutX="80.0" layoutY="850.0" mnemonicParsing="false" onAction="#back" prefHeight="101.0" prefWidth="146.0" styleClass="button_cards_left" stylesheets="@../../css/styles.css" text="Back      ">
          <font>
             <Font size="29.0" />
          </font>
       </Button>
-      <Button fx:id="show" layoutX="819.0" layoutY="193.0" mnemonicParsing="false" onAction="#show" prefHeight="137.0" prefWidth="180.0" text="Show">
+      <Button fx:id="show" layoutX="776.0" layoutY="193.0" mnemonicParsing="false" onAction="#show" prefHeight="137.0" prefWidth="223.0" styleClass="button_cards" stylesheets="@../../css/styles.css" text="  Show">
          <font>
             <Font size="41.0" />
          </font>

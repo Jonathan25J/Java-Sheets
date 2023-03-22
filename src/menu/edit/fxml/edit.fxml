@@ -19,7 +19,10 @@
           <Menu id="default" fx:id="default_" mnemonicParsing="false" text="Default" />
         </menus>
       </MenuBar>
-      <Text layoutX="38.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card:" wrappingWidth="43.865234375" />
+      <Text fill="#33cc66" layoutX="38.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card:" wrappingWidth="43.865234375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <ChoiceBox fx:id="cards" layoutX="84.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
       <MenuButton fx:id="card_options" layoutX="841.0" layoutY="134.0" mnemonicParsing="false" text="Options">
         <items>
@@ -29,7 +32,10 @@
         </items>
       </MenuButton>
       <Button fx:id="add" layoutX="944.0" layoutY="134.0" mnemonicParsing="false" onAction="#add" text="Add" />
-      <Text layoutX="848.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change name:" />
+      <Text fill="#33cc66" layoutX="828.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change name:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <TextField fx:id="namefield" layoutX="944.0" layoutY="41.0" prefHeight="25.0" prefWidth="185.0" />
       <Button fx:id="OK" layoutX="1144.0" layoutY="41.0" mnemonicParsing="false" onAction="#ok" text="OK" />
       <MenuButton fx:id="options" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="227.0">
@@ -40,25 +46,28 @@
             <MenuItem fx:id="four" mnemonicParsing="false" onAction="#four" text="4" />
          </items>
       </MenuButton>
-      <TextField fx:id="question" layoutX="406.0" layoutY="252.0" prefHeight="38.0" prefWidth="396.0" />
-      <TextArea fx:id="answer" layoutX="406.0" layoutY="327.0" prefHeight="168.0" prefWidth="396.0" />
-      <TextField fx:id="qlink" layoutX="406.0" layoutY="523.0" prefHeight="44.0" prefWidth="396.0" />
-      <Text layoutX="203.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:">
+      <TextField fx:id="question" layoutX="406.0" layoutY="252.0" prefHeight="38.0" prefWidth="396.0" styleClass="edit_attributes" stylesheets="@../../../css/styles.css" />
+      <TextArea fx:id="answer" layoutX="406.0" layoutY="327.0" prefHeight="168.0" prefWidth="396.0" styleClass="edit_attributes" stylesheets="@../../../css/styles.css" />
+      <TextField fx:id="qlink" layoutX="406.0" layoutY="523.0" prefHeight="44.0" prefWidth="396.0" styleClass="edit_attributes" stylesheets="@../../../css/styles.css" />
+      <Text fill="#33cc66" layoutX="203.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <Text layoutX="208.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
+      <Text fill="#33cc66" layoutX="208.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <Text layoutX="203.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image question link:">
+      <Text fill="#33cc66" layoutX="203.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image question link:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <Text fx:id="message" layoutX="566.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="194.0" />
+      <Text fx:id="message" fill="#33cc66" layoutX="566.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="194.0">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
       <Button fx:id="Select" layoutX="336.0" layoutY="134.0" mnemonicParsing="false" onAction="#cardConfirm" text="Select" />
-      <TextField fx:id="alink" layoutX="406.0" layoutY="591.0" prefHeight="44.0" prefWidth="396.0" />
-      <Text layoutX="203.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image answer link:">
+      <TextField fx:id="alink" layoutX="406.0" layoutY="591.0" prefHeight="44.0" prefWidth="396.0" styleClass="edit_attributes" stylesheets="@../../../css/styles.css" />
+      <Text fill="#33cc66" layoutX="203.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image answer link:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

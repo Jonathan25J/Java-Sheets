@@ -42,7 +42,7 @@
       </MenuButton>
       <TextField fx:id="question" layoutX="406.0" layoutY="252.0" prefHeight="38.0" prefWidth="396.0" />
       <TextArea fx:id="answer" layoutX="406.0" layoutY="327.0" prefHeight="168.0" prefWidth="396.0" />
-      <TextField fx:id="link" layoutX="406.0" layoutY="523.0" prefHeight="44.0" prefWidth="396.0" />
+      <TextField fx:id="qlink" layoutX="406.0" layoutY="523.0" prefHeight="44.0" prefWidth="396.0" />
       <Text layoutX="203.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -51,11 +51,17 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <Text layoutX="208.0" layoutY="539.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image link:">
+      <Text layoutX="203.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image question link:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
       <Text fx:id="message" layoutX="566.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="194.0" />
       <Button fx:id="Select" layoutX="336.0" layoutY="134.0" mnemonicParsing="false" onAction="#cardConfirm" text="Select" />
+      <TextField fx:id="alink" layoutX="406.0" layoutY="591.0" prefHeight="44.0" prefWidth="396.0" />
+      <Text layoutX="203.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image answer link:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

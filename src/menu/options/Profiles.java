@@ -43,23 +43,23 @@ public class Profiles {
 
     }
 
-    public void p1() throws IOException {
+    public void p1() throws IOException, ClassNotFoundException {
         choice(1);
     }
 
-    public void p2() throws IOException {
+    public void p2() throws IOException, ClassNotFoundException {
         choice(2);
     }
 
-    public void p3() throws IOException {
+    public void p3() throws IOException, ClassNotFoundException {
         choice(3);
     }
 
-    public void p4() throws IOException {
+    public void p4() throws IOException, ClassNotFoundException {
         choice(4);
     }
 
-    public void choice(int number) throws IOException {
+    public void choice(int number) throws IOException, ClassNotFoundException {
         String profile_name = readFile().get(number - 1);
         profile = new Profile(profile_name, number);
         if (profile.getCards() != null) {

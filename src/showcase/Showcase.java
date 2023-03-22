@@ -2,15 +2,10 @@ package showcase;
 
 import global.Card;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import menu.edit.Profile;
 import menu.options.Profiles;
 
@@ -28,7 +23,9 @@ public class Showcase {
     @FXML
     private TextArea answer;
     @FXML
-    private ImageView image;
+    private ImageView qimage;
+    @FXML
+    private ImageView aimage;
     @FXML
     private Button next;
     @FXML
@@ -38,7 +35,7 @@ public class Showcase {
     private ArrayList<Card> cards = Profiles.shuffledCards;
     public static int count;
 
-    public void initialize() throws IOException {
+    public void initialize() {
         if (count == 0) {
             count = 1;
         } else if (count - 1 == cards.size()) {
@@ -48,13 +45,21 @@ public class Showcase {
         question.setText(card.getQuestion());
         answer.setText(card.getAnswer().replace("``", "\n"));
         answer.setVisible(false);
-        image.setImage(null);
+        qimage.setImage(null);
+        aimage.setImage(null);
 
-
-        if (!card.getLink().equals("null")) {
+        if (!card.getQlink().equals("null")) {
             try {
-                image.setImage(new Image(card.getLink()));
-                image.setVisible(false);
+                qimage.setImage(new Image(card.getQlink()));
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!card.getAlink().equals("null")) {
+            try {
+                aimage.setImage(new Image(card.getAlink()));
+                aimage.setVisible(false);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
@@ -64,7 +69,7 @@ public class Showcase {
 
     public void show() {
         answer.setVisible(true);
-        image.setVisible(true);
+        aimage.setVisible(true);
     }
 
     public void next() throws IOException {

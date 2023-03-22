@@ -36,7 +36,9 @@ public class Edit {
     @FXML
     private TextArea answer;
     @FXML
-    private TextField link;
+    private TextField qlink;
+    @FXML
+    private TextField alink;
     @FXML
     private Text message;
     @FXML
@@ -62,14 +64,12 @@ public class Edit {
 
     public void initialize() {
         try {
-            File theDir = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets");
-            if (!theDir.exists()) {
-                theDir.mkdirs();
-            }
-            File myObj = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
+            ifDirectoryExists("JonaqhanJars");
+            ifDirectoryExists("JonaqhanJars\\JavaSheets");
+            File myObj = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JonaqhanJars\\JavaSheets\\config.txt");
             if (myObj.createNewFile()) {
                 for (int i = 1; i < 5; i++) {
-                    File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\cards_" + i + ".txt");
+                    File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JonaqhanJars\\JavaSheets\\cards_" + i + ".txt");
                     file.createNewFile();
                 }
                 profiles.add(new Profile("Profile: 1", 1));
@@ -94,13 +94,13 @@ public class Edit {
             }
             selection = profiles.get(0);
             read();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    public void read() {
+    public void read() throws IOException, ClassNotFoundException {
         cards.setValue("Cards");
         default_.setText(selection.getName());
         namefield.setText(selection.getName());
@@ -121,7 +121,7 @@ public class Edit {
 
     }
 
-    public void ok() throws IOException {
+    public void ok() throws IOException, ClassNotFoundException {
         ArrayList<String> data = readFile();
         data.set(selection.getNumber() - 1, namefield.getText());
         selection.setName(namefield.getText());
@@ -132,7 +132,7 @@ public class Edit {
     public ArrayList<String> readFile() {
         ArrayList<String> lines = new ArrayList<String>();
         try {
-            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
+            File file = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JonaqhanJars\\JavaSheets\\config.txt");
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
@@ -147,7 +147,7 @@ public class Edit {
 
 
     public void writeFile(ArrayList<String> lines) throws IOException {
-        FileWriter myWriter = new FileWriter(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JavaSheets\\config.txt");
+        FileWriter myWriter = new FileWriter(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\JonaqhanJars\\JavaSheets\\config.txt");
         int i = 1;
         for (String line : lines) {
             if (i != profiles.size()) {
@@ -161,36 +161,40 @@ public class Edit {
 
     }
 
-    public void selected(Profile profile) {
+    public void selected(Profile profile) throws IOException, ClassNotFoundException {
         selection = profile;
         read();
     }
 
-    public void one() {
+    public void one() throws IOException, ClassNotFoundException {
         selected(profiles.get(0));
     }
 
-    public void two() {
+    public void two() throws IOException, ClassNotFoundException {
         selected(profiles.get(1));
     }
 
-    public void three() {
+    public void three() throws IOException, ClassNotFoundException {
         selected(profiles.get(2));
     }
 
-    public void four() {
+    public void four() throws IOException, ClassNotFoundException {
         selected(profiles.get(3));
     }
 
-    public void add() throws IOException {
+    public void add() throws IOException, ClassNotFoundException {
         if (question.getText().isEmpty() || answer.getText().isEmpty()) {
             message.setText("Content is required");
         } else {
             Card card = null;
-            if (link.getText().isEmpty()) {
-                card = new Card(question.getText(), answer.getText().replace("\n", "``"), "null");
+            if (qlink.getText().isEmpty() && alink.getText().isEmpty() ) {
+                card = new Card(question.getText(), answer.getText().replace("\n", "``"), "null", "null");
+            } else if (qlink.getText().isEmpty()) {
+                card = new Card(question.getText(), answer.getText().replace("\n", "``"), "null", alink.getText());
+            } else if (alink.getText().isEmpty()) {
+                card = new Card(question.getText(), answer.getText().replace("\n", "``"), qlink.getText(), "null");
             } else {
-                card = new Card(question.getText(), answer.getText().replace("\n", "``"), link.getText());
+                card = new Card(question.getText(), answer.getText().replace("\n", "``"), qlink.getText(), alink.getText());
             }
             selection.addCard(card);
             reset("Card is added");
@@ -198,40 +202,49 @@ public class Edit {
         }
     }
 
-    public void cardConfirm() {
+    public void cardConfirm() throws IOException, ClassNotFoundException {
         for (Card card : selection.getCards()) {
             if (card.getQuestion().equals(cards.getValue())) {
                 selectedCard = card;
                 question.setText(card.getQuestion());
                 answer.setText(card.getAnswer().replace("``", "\n"));
-                link.setText(card.getLink());
+                qlink.setText(card.getQlink());
+                alink.setText(card.getAlink());
             }
         }
 
     }
 
-    public void delete() throws IOException {
+    public void delete() throws IOException, ClassNotFoundException {
         if (selectedCard == null || cards.getValue() == null || question.getText().isEmpty()) return;
         selection.removeCard(selectedCard);
         reset("Card is removed");
     }
 
-    public void reset(String notification) {
+    public void reset(String notification) throws IOException, ClassNotFoundException {
         message.setText(notification);
         question.clear();
         answer.clear();
-        link.clear();
+        alink.clear();
+        qlink.clear();
         read();
     }
 
-    public void save() throws IOException {
+    public void save() throws IOException, ClassNotFoundException {
         if (selectedCard == null || cards.getValue() == null || question.getText().isEmpty()) return;
         selection.removeCard(selectedCard);
         add();
     }
 
-    public void clear() {
+    public void clear() throws IOException, ClassNotFoundException {
         reset("Cleared");
+    }
+
+    public void ifDirectoryExists(String name) {
+        File theDir = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\" + name);
+        if (!theDir.exists()) {
+            theDir.mkdirs();
+        }
     }
 
 }

@@ -1,15 +1,20 @@
 package global;
 
 
-public class Card {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Card implements Serializable {
     private String question;
     private String answer;
-    private String link;
+    private String qlink;
+    private String alink;
 
-    public Card(String question, String answer, String link) {
+    public Card(String question, String answer, String qlink, String alink) {
         this.question = question;
         this.answer = answer;
-        this.link = link;
+        this.qlink = qlink;
+        this.alink = alink;
     }
 
     public String getQuestion() {
@@ -27,17 +32,36 @@ public class Card {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
-    public String getLink() {
-        return link;
+    public String getQlink() {
+        return qlink;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setQlink(String qlink) {
+        this.qlink = qlink;
+    }
+
+    public String getAlink() {
+        return alink;
+    }
+
+    public void setAlink(String alink) {
+        this.alink = alink;
     }
 
     @Override
     public String toString() {
-        return question + "<>" + answer + "<>" + link;
+        return "Card: " +
+                "question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                ", qlink='" + qlink + '\'' +
+                ", alink='" + alink ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return question.equals(card.question) && answer.equals(card.answer) && qlink.equals(card.qlink) && alink.equals(card.alink);
     }
 }

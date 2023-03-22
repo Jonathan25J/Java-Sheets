@@ -63,7 +63,11 @@ public class Profiles {
     public void choice(int number) throws IOException, ClassNotFoundException {
         String profile_name = readFile().get(number - 1);
         profile = new Profile(profile_name, number);
-        if (profile.getCards() != null) {
+        if (profile.getCards() != null ) {
+            if (profile.getCards().isEmpty()) {
+                message.setText(profile.getName() + " doesn't contain any cards");
+                return;
+            }
             shuffledCards = profile.getCards();
             Collections.shuffle(shuffledCards);
 

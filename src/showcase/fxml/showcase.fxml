@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -24,17 +25,22 @@
             <Font size="29.0" />
          </font>
       </Button>
-      <Button fx:id="show" layoutX="776.0" layoutY="193.0" mnemonicParsing="false" onAction="#show" prefHeight="137.0" prefWidth="223.0" styleClass="button_cards" stylesheets="@../../css/styles.css" text="  Show">
+      <Button fx:id="show" layoutX="777.0" layoutY="237.0" mnemonicParsing="false" onAction="#show" prefHeight="137.0" prefWidth="223.0" styleClass="button_cards" stylesheets="@../../css/styles.css" text="  Show">
          <font>
             <Font size="41.0" />
          </font>
       </Button>
-      <TextArea fx:id="answer" editable="false" layoutX="489.0" layoutY="349.0" prefHeight="178.0" prefWidth="830.0">
+      <TextArea fx:id="answer" editable="false" layoutX="496.0" layoutY="402.0" prefHeight="178.0" prefWidth="830.0">
          <font>
             <Font size="30.0" />
          </font>
       </TextArea>
-      <ImageView fx:id="aimage" fitHeight="486.0" fitWidth="824.0" layoutX="489.0" layoutY="548.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="aimage" fitHeight="423.0" fitWidth="809.0" layoutX="504.0" layoutY="611.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="qimage" fitHeight="294.0" fitWidth="512.0" layoutX="1259.0" layoutY="31.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <TitledPane fx:id="notepad" animated="false" layoutX="82.0" layoutY="18.0" prefHeight="209.0" prefWidth="285.0" styleClass="notepad" stylesheets="@../../css/styles.css" text="Notepad">
+         <content>
+            <TextArea fx:id="notepadtext" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../css/text_area.css" />
+         </content>
+      </TitledPane>
    </children>
 </AnchorPane>

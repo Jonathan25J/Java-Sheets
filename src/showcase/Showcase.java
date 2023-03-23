@@ -4,6 +4,7 @@ import global.Card;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import menu.edit.Profile;
@@ -30,6 +31,10 @@ public class Showcase {
     private Button next;
     @FXML
     private Button back;
+    @FXML
+    TitledPane notepad;
+    @FXML
+    TextArea notepadtext;
 
     private final Profile profile = Profiles.profile;
     private ArrayList<Card> cards = Profiles.shuffledCards;
@@ -37,6 +42,7 @@ public class Showcase {
 
     public void initialize() {
         if (count == 0) {
+            notepad.setExpanded(false);
             count = 1;
         } else if (count - 1 == cards.size()) {
             count -= 1;
@@ -47,6 +53,10 @@ public class Showcase {
         answer.setVisible(false);
         qimage.setImage(null);
         aimage.setImage(null);
+        aimage.setMouseTransparent(true);
+        answer.setPrefHeight(178);
+        aimage.setFitHeight(423);
+        aimage.setLayoutY(611);
 
         if (!card.getQlink().equals("null")) {
             try {
@@ -61,6 +71,7 @@ public class Showcase {
                 aimage.setImage(new Image(card.getAlink()));
                 aimage.setVisible(false);
             } catch (IllegalArgumentException e) {
+                answer.setText("Image cannot be loaded");
                 e.printStackTrace();
             }
         }
@@ -68,17 +79,25 @@ public class Showcase {
     }
 
     public void show() {
-        answer.setVisible(true);
+        if (!answer.getText().isEmpty() && aimage.getImage() == null) {
+            answer.setVisible(true);
+            answer.setPrefHeight(600);
+        } else if (!answer.getText().isEmpty()) {
+            answer.setVisible(true);
+        } else {
+            aimage.setFitHeight(561);
+            aimage.setLayoutY(400);
+        }
         aimage.setVisible(true);
     }
 
-    public void next() throws IOException {
+    public void next() {
         count++;
         initialize();
 
     }
 
-    public void back() throws IOException {
+    public void back() {
         count -= 1;
         initialize();
 

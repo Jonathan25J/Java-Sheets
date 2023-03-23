@@ -184,7 +184,7 @@ public class Edit {
     }
 
     public void add() throws IOException, ClassNotFoundException {
-        if (question.getText().isEmpty() || answer.getText().isEmpty()) {
+        if (question.getText().isEmpty() || answer.getText().isEmpty() && alink.getText().isEmpty()) {
             message.setText("Content is required");
         } else {
             Card card = null;

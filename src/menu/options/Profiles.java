@@ -14,6 +14,7 @@ import menu.edit.Profile;
 import showcase.Showcase;
 
 import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -72,7 +73,14 @@ public class Profiles {
             Collections.shuffle(shuffledCards);
 
             Showcase.count = 0;
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/showcase/fxml/showcase.fxml"));
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            int width = gd.getDisplayMode().getWidth();
+            int height = gd.getDisplayMode().getHeight();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/showcase/fxml/higher_res.fxml"));
+            if (!(width >= 1920 || height >= 1080)) {
+                fxmlLoader = new FXMLLoader(getClass().getResource("/showcase/fxml/lower_res.fxml"));
+                Showcase.res = 1;
+            }
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/images/icon.png"));

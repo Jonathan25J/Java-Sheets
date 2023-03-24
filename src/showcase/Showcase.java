@@ -39,6 +39,7 @@ public class Showcase {
     private final Profile profile = Profiles.profile;
     private ArrayList<Card> cards = Profiles.shuffledCards;
     public static int count;
+    public static int res;
 
     public void initialize() {
         if (count == 0) {
@@ -54,9 +55,11 @@ public class Showcase {
         qimage.setImage(null);
         aimage.setImage(null);
         aimage.setMouseTransparent(true);
-        answer.setPrefHeight(178);
-        aimage.setFitHeight(423);
-        aimage.setLayoutY(611);
+        if (res == 0) {
+            answer.setPrefHeight(178);
+            aimage.setFitHeight(423);
+            aimage.setLayoutY(611);
+        }
 
         if (!card.getQlink().equals("null")) {
             try {
@@ -81,12 +84,16 @@ public class Showcase {
     public void show() {
         if (!answer.getText().isEmpty() && aimage.getImage() == null) {
             answer.setVisible(true);
-            answer.setPrefHeight(600);
+            if (res == 0) {
+                answer.setPrefHeight(600);
+            }
         } else if (!answer.getText().isEmpty()) {
             answer.setVisible(true);
         } else {
-            aimage.setFitHeight(561);
-            aimage.setLayoutY(400);
+            if (res == 0) {
+                aimage.setFitHeight(561);
+                aimage.setLayoutY(400);
+            }
         }
         aimage.setVisible(true);
     }

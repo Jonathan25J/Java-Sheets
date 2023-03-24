@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane prefHeight="1080.0" prefWidth="1920.0" vgap="5.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="showcase.Showcase">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <TitledPane fx:id="notepad" animated="false" prefHeight="209.0" prefWidth="285.0" styleClass="notepad" stylesheets="@../../css/styles.css" text="Notepad" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <content>
+            <TextArea fx:id="notepadtext" prefHeight="183.0" prefWidth="378.0" stylesheets="@../../css/text_area.css" />
+         </content>
+         <GridPane.margin>
+            <Insets left="5.0" right="410.0" top="20.0" />
+         </GridPane.margin>
+      </TitledPane>
+      <ImageView fx:id="qimage" fitHeight="294.0" fitWidth="512.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BASELINE">
+         <GridPane.margin>
+            <Insets top="30.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="aimage" fitHeight="337.0" fitWidth="631.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BASELINE" GridPane.vgrow="NEVER">
+         <GridPane.margin>
+            <Insets bottom="120.0" />
+         </GridPane.margin>
+      </ImageView>
+      <TextArea fx:id="answer" editable="false" prefHeight="578.0" prefWidth="640.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="back" defaultButton="true" mnemonicParsing="false" onAction="#back" prefHeight="101.0" prefWidth="146.0" styleClass="button_cards_left" stylesheets="@../../css/styles.css" text="Back      " GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="29.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="30.0" left="20.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="next" defaultButton="true" mnemonicParsing="false" onAction="#next" prefHeight="101.0" prefWidth="146.0" styleClass="button_cards_right" stylesheets="@../../css/styles.css" text="      Next" textAlignment="JUSTIFY" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="29.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="30.0" right="20.0" />
+         </GridPane.margin>
+      </Button>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Button fx:id="show" layoutX="187.0" layoutY="196.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#show" prefHeight="137.0" prefWidth="223.0" styleClass="button_cards" stylesheets="@../../css/styles.css" text="  Show">
+               <font>
+                  <Font size="41.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Text fx:id="question" fill="#0e89e1" layoutX="-151.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="932.0">
+               <font>
+                  <Font name="Calibri" size="58.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
